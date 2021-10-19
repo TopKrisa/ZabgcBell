@@ -53,6 +53,18 @@ namespace ZabgcBell
             this.DownBTN2 = new System.Windows.Forms.Button();
             this.UpBTN2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.LongBells = new System.Windows.Forms.TabPage();
+            this.gradientPanel3 = new ZabgcBell.GradientPanel();
+            this.LNGcls = new System.Windows.Forms.Button();
+            this.LNGSave = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RefreshLongBells = new System.Windows.Forms.Button();
+            this.LNGdwn = new System.Windows.Forms.Button();
+            this.LNGup = new System.Windows.Forms.Button();
+            this.LongBellsList = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.PageFiveMinutes.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -61,12 +73,17 @@ namespace ZabgcBell
             this.TabTenMinutes.SuspendLayout();
             this.gradientPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.LongBells.SuspendLayout();
+            this.gradientPanel3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.PageFiveMinutes);
             this.tabControl1.Controls.Add(this.TabTenMinutes);
+            this.tabControl1.Controls.Add(this.LongBells);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -334,6 +351,146 @@ namespace ZabgcBell
             this.listBox2.Size = new System.Drawing.Size(464, 450);
             this.listBox2.TabIndex = 0;
             // 
+            // LongBells
+            // 
+            this.LongBells.Controls.Add(this.gradientPanel3);
+            this.LongBells.Controls.Add(this.panel3);
+            this.LongBells.Location = new System.Drawing.Point(4, 24);
+            this.LongBells.Name = "LongBells";
+            this.LongBells.Padding = new System.Windows.Forms.Padding(3);
+            this.LongBells.Size = new System.Drawing.Size(542, 547);
+            this.LongBells.TabIndex = 2;
+            this.LongBells.Text = "Большая перемена";
+            this.LongBells.UseVisualStyleBackColor = true;
+            // 
+            // gradientPanel3
+            // 
+            this.gradientPanel3.ColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.gradientPanel3.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
+            this.gradientPanel3.Controls.Add(this.LNGcls);
+            this.gradientPanel3.Controls.Add(this.LNGSave);
+            this.gradientPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gradientPanel3.Location = new System.Drawing.Point(3, 464);
+            this.gradientPanel3.Name = "gradientPanel3";
+            this.gradientPanel3.Size = new System.Drawing.Size(536, 80);
+            this.gradientPanel3.TabIndex = 11;
+            // 
+            // LNGcls
+            // 
+            this.LNGcls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LNGcls.ForeColor = System.Drawing.Color.Navy;
+            this.LNGcls.Location = new System.Drawing.Point(350, 15);
+            this.LNGcls.Name = "LNGcls";
+            this.LNGcls.Size = new System.Drawing.Size(80, 50);
+            this.LNGcls.TabIndex = 10;
+            this.LNGcls.Text = "Отмена";
+            this.LNGcls.UseVisualStyleBackColor = true;
+            // 
+            // LNGSave
+            // 
+            this.LNGSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LNGSave.ForeColor = System.Drawing.Color.Navy;
+            this.LNGSave.Location = new System.Drawing.Point(445, 15);
+            this.LNGSave.Name = "LNGSave";
+            this.LNGSave.Size = new System.Drawing.Size(80, 50);
+            this.LNGSave.TabIndex = 9;
+            this.LNGSave.Text = "Сохранить";
+            this.LNGSave.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.RefreshLongBells);
+            this.panel3.Controls.Add(this.LNGdwn);
+            this.panel3.Controls.Add(this.LNGup);
+            this.panel3.Controls.Add(this.LongBellsList);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(536, 455);
+            this.panel3.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(0, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 95);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "12345";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(136)))));
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(25, -80);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(500, 80);
+            this.panel5.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.SeaShell;
+            this.label5.Location = new System.Drawing.Point(0, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(500, 70);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "При сохранении проигрываются только первые 5 песен.\r\nЕсли песен меньше, они проиг" +
+    "рываются с повтором.\r\nДанные были сохраненны.\r\n\r\n\r\n";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RefreshLongBells
+            // 
+            this.RefreshLongBells.BackgroundImage = global::ZabgcBell.Properties.Resources.arrow_refresh_synchronization_sync_icon_183045;
+            this.RefreshLongBells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RefreshLongBells.FlatAppearance.BorderSize = 0;
+            this.RefreshLongBells.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshLongBells.Location = new System.Drawing.Point(485, 125);
+            this.RefreshLongBells.Name = "RefreshLongBells";
+            this.RefreshLongBells.Size = new System.Drawing.Size(50, 50);
+            this.RefreshLongBells.TabIndex = 3;
+            this.RefreshLongBells.UseVisualStyleBackColor = true;
+            // 
+            // LNGdwn
+            // 
+            this.LNGdwn.BackgroundImage = global::ZabgcBell.Properties.Resources._1492790981_66arrow_down_84230;
+            this.LNGdwn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LNGdwn.FlatAppearance.BorderSize = 0;
+            this.LNGdwn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LNGdwn.Location = new System.Drawing.Point(485, 255);
+            this.LNGdwn.Name = "LNGdwn";
+            this.LNGdwn.Size = new System.Drawing.Size(50, 50);
+            this.LNGdwn.TabIndex = 2;
+            this.LNGdwn.UseVisualStyleBackColor = true;
+            // 
+            // LNGup
+            // 
+            this.LNGup.BackgroundImage = global::ZabgcBell.Properties.Resources._1492790981_66arrow_down_842301;
+            this.LNGup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LNGup.FlatAppearance.BorderSize = 0;
+            this.LNGup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LNGup.Location = new System.Drawing.Point(485, 200);
+            this.LNGup.Name = "LNGup";
+            this.LNGup.Size = new System.Drawing.Size(50, 50);
+            this.LNGup.TabIndex = 1;
+            this.LNGup.UseVisualStyleBackColor = true;
+            // 
+            // LongBellsList
+            // 
+            this.LongBellsList.BackColor = System.Drawing.Color.White;
+            this.LongBellsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LongBellsList.FormattingEnabled = true;
+            this.LongBellsList.ItemHeight = 15;
+            this.LongBellsList.Location = new System.Drawing.Point(12, 6);
+            this.LongBellsList.Name = "LongBellsList";
+            this.LongBellsList.Size = new System.Drawing.Size(464, 480);
+            this.LongBellsList.TabIndex = 0;
+            // 
             // ScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -353,6 +510,10 @@ namespace ZabgcBell
             this.TabTenMinutes.ResumeLayout(false);
             this.gradientPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.LongBells.ResumeLayout(false);
+            this.gradientPanel3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,5 +543,17 @@ namespace ZabgcBell
         private GradientPanel gradientPanel2;
         private System.Windows.Forms.Button CloseBTN2;
         private System.Windows.Forms.Button SaveBTN2;
+        private System.Windows.Forms.TabPage LongBells;
+        private GradientPanel gradientPanel3;
+        private System.Windows.Forms.Button LNGcls;
+        private System.Windows.Forms.Button LNGSave;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button RefreshLongBells;
+        private System.Windows.Forms.Button LNGdwn;
+        private System.Windows.Forms.Button LNGup;
+        private System.Windows.Forms.ListBox LongBellsList;
     }
 }

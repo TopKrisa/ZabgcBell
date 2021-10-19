@@ -46,7 +46,7 @@ namespace ZabgcBell
             {
             new DateTime(Year,Month,Day,9,15,00),
             new DateTime(Year,Month,Day,11,00,00),
-            new DateTime(Year,Month,Day,13,15,00),
+            new DateTime(Year,Month,Day,12,35,00),
             new DateTime(Year,Month,Day,15,00,00),
             new DateTime(Year,Month,Day,16,45,00),
             };

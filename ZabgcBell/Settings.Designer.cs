@@ -78,7 +78,7 @@ namespace ZabgcBell
             this.gradientPanel1.Controls.Add(this.label2);
             this.gradientPanel1.Controls.Add(this.button1);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 335);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 339);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(380, 115);
             this.gradientPanel1.TabIndex = 15;
@@ -93,7 +93,7 @@ namespace ZabgcBell
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(380, 22);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Developed by SaltPower - ПК-18-3К v 1.3\r\n\r\n";
+            this.label2.Text = "Developed by SaltPower - ПК-18-3К v 1.4\r\n\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // button1
@@ -164,14 +164,14 @@ namespace ZabgcBell
             this.trackBar1.Location = new System.Drawing.Point(0, 149);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(380, 45);
+            this.trackBar1.Size = new System.Drawing.Size(380, 37);
             this.trackBar1.TabIndex = 23;
             // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(0, 194);
+            this.label5.Location = new System.Drawing.Point(0, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(380, 25);
             this.label5.TabIndex = 24;
@@ -195,7 +195,7 @@ namespace ZabgcBell
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(380, 450);
+            this.ClientSize = new System.Drawing.Size(380, 454);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.trackBar1);

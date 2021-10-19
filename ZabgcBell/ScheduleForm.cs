@@ -15,7 +15,7 @@ namespace ZabgcBell
         public List<string> NameSongs = new List<string>();
         public List<string> AllSongs = new List<string>();
         private string _Playlistpath10Minutes = Directory.GetCurrentDirectory() + @"\Resources\PlayList10Min.txt";
-
+        private string _LongBellPlayList = Directory.GetCurrentDirectory() + @"\Resources\LongBellPL.txt";
         public ScheduleForm()
         {
             InitializeComponent();
@@ -36,6 +36,14 @@ namespace ZabgcBell
             DownButton.Click += (s, e) =>
             {
                 MoveDown(listBox1);
+            };
+            LNGdwn.Click += (s, e) =>
+            {
+                MoveDown(LongBellsList);
+            };
+            LNGup.Click += (s, e) =>
+            {
+                MoveUp(LongBellsList);
             };
 
             void MoveUp(ListBox listBox)
@@ -68,6 +76,7 @@ namespace ZabgcBell
                 {
                     SavePlayLists(listBox2, _Playlistpath10Minutes);
                 }
+                
                 Close();
             };
             SaveBTN2.Click += (s, e) =>
@@ -79,6 +88,15 @@ namespace ZabgcBell
                 }
                 Close(); 
             };
+            LNGSave.Click += (s, e) =>
+           {
+               SavePlayLists(LongBellsList, _LongBellPlayList);
+               Close();
+           };
+            RefreshLongBells.Click += (s, e) =>
+            {
+                GetAllSongs(LongBellsList);
+            };
             RefreshButton.Click += (s, e) =>
              { GetAllSongs(listBox1); };
             RefreshBTN2.Click += (s, e) =>
@@ -86,6 +104,10 @@ namespace ZabgcBell
             OutButton.Click += (s, e) =>
             { Close(); };
             CloseBTN2.Click += (s, e) => { Close(); };
+            LNGcls.Click += (s, e) =>
+            {
+                Close();
+            };
         }
         void GetCurrentList(ListBox listBox,string Path)
         {
@@ -102,16 +124,19 @@ namespace ZabgcBell
         {
             string Fiveminutes = @"\5 Minutes";
             string Tenminutes = @"\10 Minutes";
+            string LongBell = @"\LongBell";
             string dirpath ="";
             if (tabControl1.SelectedIndex == 0)
             {
                 //5min
-                dirpath = Directory.GetCurrentDirectory()+ Fiveminutes;
+                dirpath = Directory.GetCurrentDirectory() + Fiveminutes;
             }
             else if (tabControl1.SelectedIndex == 1)
             {
                 dirpath = Directory.GetCurrentDirectory() + Tenminutes;
             }
+            else if (tabControl1.SelectedIndex == 2)
+                dirpath = Directory.GetCurrentDirectory() + LongBell;
             
             DirectoryInfo dir = new DirectoryInfo(dirpath);
             FileInfo[] files = dir.GetFiles("*.wav");
@@ -143,7 +168,10 @@ namespace ZabgcBell
                 else if (tabControl1.SelectedIndex == 1)
                 {
                     writer.WriteLine(song);
-
+                }
+                else if(tabControl1.SelectedIndex == 2)
+                {
+                    writer.WriteLine(song);
                 }
                 
 
@@ -163,6 +191,10 @@ namespace ZabgcBell
             else if(tabControl1.SelectedIndex == 1)
             {
                 GetCurrentList(listBox2, _Playlistpath10Minutes);
+            }
+            else if(tabControl1.SelectedIndex == 2)
+            {
+                GetCurrentList(LongBellsList, _LongBellPlayList);
             }
         }
     }
