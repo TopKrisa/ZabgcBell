@@ -13,7 +13,7 @@ namespace ZabgcBell
         private int _soundId;
         private int DurationBell;
         private int _Duration ;
-        private bool _CheckDuration;
+      
         private float ValueVolume = Convert.ToInt32(new ConfigClass().ReadCfg(Directory.GetCurrentDirectory() + @"\Resources\" + "VolumeValue.txt"));
         private AudioEndPoint audioEndPoint = new AudioEndPoint();
         private SoundPlayer soundPlayer = new SoundPlayer();
@@ -23,7 +23,6 @@ namespace ZabgcBell
         /// для checkduration true 10 минут 
         /// false 5 минут
         /// </summary>
-        //
         public Bell(int SoundId, int Duration, bool checkDuration)
         {
             InitializeComponent();
@@ -37,23 +36,37 @@ namespace ZabgcBell
         {
             if(_Duration == (int)DurationStatus.DurationStatusEnum.Desyatminut)
             {
-                _CheckDuration = true;
+               
                 PathRead = Directory.GetCurrentDirectory() + @"\Resources\PlayList10Min.txt";
-                Path = Directory.GetCurrentDirectory() + $@"/10 Minutes/";
+                Path = Directory.GetCurrentDirectory() + $@"\10 Minutes\";
             }
             else if(_Duration == (int)DurationStatus.DurationStatusEnum.pyatminut)
             {
-                _CheckDuration = false;
+            
                 PathRead = Directory.GetCurrentDirectory() + @"\Resources\SchedulePlaylist.txt";
-                Path= Directory.GetCurrentDirectory() + $@"/5 Minutes/" ;
+                Path= Directory.GetCurrentDirectory() + $@"\5 Minutes\" ;
             }
-            else if (_Duration > (int)DurationStatus.DurationStatusEnum.Desyatminut) 
+            else if (_Duration == (int)DurationStatus.DurationStatusEnum.Sorokminut) 
             {
+
                 PathRead= Directory.GetCurrentDirectory() + @"\Resources\LongBellPL.txt";
-                Path = Directory.GetCurrentDirectory() + $@"/LongBell/";
+                Path = Directory.GetCurrentDirectory() + $@"\LongBell\";
+                _soundId = 0;
             }
-           /////////////////////////////////
-             ConfigClass configClass = new ConfigClass();
+            else if (_Duration == (int)DurationStatus.DurationStatusEnum.Tridcatminut)
+            {
+                PathRead = Directory.GetCurrentDirectory() + @"\Resources\LongBellPL.txt";
+                Path = Directory.GetCurrentDirectory() + $@"\LongBell\";
+                _soundId =1;
+            }
+            else
+            {
+               
+                PathRead = Directory.GetCurrentDirectory() + @"\Resources\SchedulePlaylist.txt";
+                Path = Directory.GetCurrentDirectory() + $@"\5 Minutes\";
+            }
+            /////////////////////////////////
+            ConfigClass configClass = new ConfigClass();
              DurationBell = Convert.ToInt32(configClass.ReadCfg(Directory.GetCurrentDirectory() + @"\Resources\" + "Duration_cfg.txt"));
             StreamReader SoundPathReader = new StreamReader(PathRead);
             string sound;
@@ -62,16 +75,20 @@ namespace ZabgcBell
             {
                 PathList.Add(sound);
             }
-            timer1.Enabled = true;
+            logicduration = _Duration - gromko;
+            label1.Text = PathList[_soundId];
+            timer1.Enabled = true; 
             timer1.Start();
         }
+        #region Properties
         List<string> PathList = new List<string>();
         private string PathRead;
         int dur = 60;
         int gromko = Convert.ToInt32(new ConfigClass().ReadCfg(Directory.GetCurrentDirectory() + @"\Resources\" + "Duration_cfg.txt"));
+        private int logicduration;
         private bool CheckOutBell = Form1.CheckOutBell;
         private TimeSpan FiveMinutes = new TimeSpan(0, 5, 30);
-
+        #endregion
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -98,7 +115,7 @@ namespace ZabgcBell
                         {
                             audioEndPoint.Inizialize(1f);
                         }
-                        else if (gromko <= 0 && _Duration >90)
+                        else if (gromko <= 0 && _Duration > 90)
                         {
                             audioEndPoint.Inizialize(ValueVolume / 100);
 
@@ -107,29 +124,33 @@ namespace ZabgcBell
                         {
                             audioEndPoint.Inizialize(1f);
                         }
+                        else if (_Duration >= logicduration)
+                        {
+                            audioEndPoint.Inizialize(1f);
+                        }
                     }
                     else
                     {
-                       // bil stop
+                        // bil stop
 
                     }
                     if (_Duration <= 0)
                     {
                         soundPlayer.Stop();
                         Close();
-                     }
+                    }
                     else
                     {
                         label2.Text = "Окно закроется через: ";
                         label4.Text = _Duration.ToString() + " сек.";
                         dur--;
                     }
-                   
+
                 }
                 else if (a == 1)
                 {
 
-                    soundPlayer.SoundLocation = Directory.GetCurrentDirectory()+ $@"/5 Minutes/"+PathList[_soundId];
+                    soundPlayer.SoundLocation = Directory.GetCurrentDirectory() + $@"/5 Minutes/" + PathList[_soundId];
                     audioEndPoint.Inizialize(1f);
 
                     if (DurationBell > 0)
@@ -142,7 +163,7 @@ namespace ZabgcBell
                             CheckOutBell = false;
                         }
 
-                        DurationBell --;
+                        DurationBell--;
                         label4.Text = DurationBell.ToString() + "сек. ";
                     }
                     else
@@ -160,19 +181,29 @@ namespace ZabgcBell
                     {
                         label2.Text = "Окно закроется через: ";
                         dur--;
+                        gromko--;
                         label4.Text = $"{gromko.ToString()}" + " сек.";
 
                     }
                 }
 
-            }else if(DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            } 
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
             {
                 dur--;
-                if(dur <= 0)
+                if (dur <= 0)
                 {
                     Close();
                 }
 
+            }
+            if ((dur / 10) <= 0)
+            {
+                if(String.IsNullOrEmpty(label4.Text))
+                {
+                    Close();
+                }
+                
             }
         }
     }

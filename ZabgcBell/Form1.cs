@@ -46,7 +46,7 @@ namespace ZabgcBell
             {
             new DateTime(Year,Month,Day,9,15,00),
             new DateTime(Year,Month,Day,11,00,00),
-            new DateTime(Year,Month,Day,12,35,00),
+            new DateTime(Year,Month,Day,13,15,00),
             new DateTime(Year,Month,Day,15,00,00),
             new DateTime(Year,Month,Day,16,45,00),
             };
@@ -124,7 +124,7 @@ namespace ZabgcBell
             };
             TimeOfEnd = new List<DateTime>
             {
-            new DateTime(Year,Month,Day,15,18,00),
+            new DateTime(Year,Month,Day,10,05,00),
             new DateTime(Year,Month,Day,11,50,00),
             new DateTime(Year,Month,Day,12,45,00),
             new DateTime(Year,Month,Day,14,50,00),
@@ -164,12 +164,6 @@ namespace ZabgcBell
                     if (duration == "0") { TakedateFullDay(); }
                     else if (duration == "1") 
                     {
-                        if (DateTime.Now.Hour == 23 & DateTime.Now.Minute == 59)
-                        {
-                            GlobalTimer.Stop();
-                            new ChangeValueOfWeeks(65, "0", "Checkercfg.txt").ShowDialog();
-                            GlobalTimer.Start();
-                        }
                         TakedateHalfDay(); 
                     };
                     if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday & DateTime.Now.Hour == 23 & DateTime.Now.Minute == 59)
@@ -193,12 +187,7 @@ namespace ZabgcBell
                         if (duration == "0") { TakedateFullDay(); }
                         else if (duration == "1")
                         {
-                            if (DateTime.Now.Hour == 23 & DateTime.Now.Minute == 59)
-                            {
-                                new ChangeValueOfWeeks(65, "0", "Checkercfg.txt").ShowDialog();
-                            }
                             TakedateHalfDay();
-                        
                         };
                         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                         if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday & DateTime.Now.Hour == 23  & DateTime.Now.Minute == 59)
@@ -227,7 +216,6 @@ namespace ZabgcBell
         }
         private void OnBell(int NumberOfMusic,DurationStatus.DurationStatusEnum durationStatus,Timer timer)
         {
-            
             result = NumberOfMusic;
             timer.Stop();
          //   DurationForBells = Convert.ToInt32(Durationcfg());
@@ -240,7 +228,6 @@ namespace ZabgcBell
         {
             ConfigClass config = new ConfigClass();
             bool ChoiseBell = false;
-
             int a = Convert.ToInt32(config.ReadCfg(Directory.GetCurrentDirectory() + @"\Resources\" + "BellSetting.txt"));
             if (a == 1)
                 ChoiseBell = true;
@@ -274,11 +261,6 @@ namespace ZabgcBell
             Day = lists.GetCurrentDay();
             Durationcfg();
             label1.Text = DateTime.Now.ToLongTimeString();
-
-
-
-
-
         }
         private void Form1_Activated(object sender, EventArgs e)
         {
@@ -344,7 +326,7 @@ namespace ZabgcBell
             {
                 if ((DateTime.Now.Minute == TimeOfStart[inc].Minute) & (DateTime.Now.Hour == TimeOfStart[inc].Hour))
                 {
-
+                    
                     OnBell(inc, DurationStatus.DurationStatusEnum.odnaminuta, GlobalTimer);
                     ChoiseNextSound(inc);
                     break;
@@ -353,6 +335,10 @@ namespace ZabgcBell
                 {
                     OnBell(inc, DurationStatus.DurationStatusEnum.Desyatminut, GlobalTimer);
                     ChoiseNextSound(inc);
+                    if((DateTime.Now.Minute == TimeOfEnd[4].Minute) & (DateTime.Now.Hour == TimeOfEnd[4].Hour))
+                    {
+                            new ChangeValueOfWeeks(65, "0", "Checkercfg.txt").ShowDialog();
+                    }
                     break;
                 }
             }
@@ -455,8 +441,9 @@ namespace ZabgcBell
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = true;
-            fileDialog.Filter = "Звонки с расширением |*.wav;";
+            fileDialog.Filter = "Звонки с расширением wav |*.wav;";
             TimeSpan FiveMinutes = new TimeSpan(0, 5, 30);
+            TimeSpan TenMinutes = new TimeSpan(0, 15, 30);
            
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -471,11 +458,14 @@ namespace ZabgcBell
                     {
                         File.Copy(fn, Directory.GetCurrentDirectory() + @"/5 Minutes" + @"/" + System.IO.Path.GetFileName(fn), false);
                     }
+                    else if(ConfigClass.GetWaveTime(fn)>=TenMinutes )
+                    {
+                        File.Copy(fn, Directory.GetCurrentDirectory() + @"/LongBell" + @"/" + System.IO.Path.GetFileName(fn), false);
+                    }
                     else
                     {
                         File.Copy(fn, Directory.GetCurrentDirectory() + @"/10 Minutes" + @"/" + System.IO.Path.GetFileName(fn), false);
-                    }
-                    
+                    } 
                 }
             }
         }

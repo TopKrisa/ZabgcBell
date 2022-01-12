@@ -65,6 +65,7 @@ namespace ZabgcBell
             this.LNGdwn = new System.Windows.Forms.Button();
             this.LNGup = new System.Windows.Forms.Button();
             this.LongBellsList = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.PageFiveMinutes.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -367,6 +368,7 @@ namespace ZabgcBell
             // 
             this.gradientPanel3.ColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.gradientPanel3.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
+            this.gradientPanel3.Controls.Add(this.label6);
             this.gradientPanel3.Controls.Add(this.LNGcls);
             this.gradientPanel3.Controls.Add(this.LNGSave);
             this.gradientPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -491,6 +493,17 @@ namespace ZabgcBell
             this.LongBellsList.Size = new System.Drawing.Size(464, 480);
             this.LongBellsList.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(5, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(224, 34);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Первая песня не менее 40 минут, \r\nвторая не менее 30 минут";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -512,6 +525,7 @@ namespace ZabgcBell
             this.panel4.ResumeLayout(false);
             this.LongBells.ResumeLayout(false);
             this.gradientPanel3.ResumeLayout(false);
+            this.gradientPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -548,12 +562,13 @@ namespace ZabgcBell
         private System.Windows.Forms.Button LNGcls;
         private System.Windows.Forms.Button LNGSave;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button RefreshLongBells;
         private System.Windows.Forms.Button LNGdwn;
         private System.Windows.Forms.Button LNGup;
         private System.Windows.Forms.ListBox LongBellsList;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

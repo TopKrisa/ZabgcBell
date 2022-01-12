@@ -34,7 +34,7 @@ namespace ZabgcBell
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьПеснюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddSong = new System.Windows.Forms.ToolStripMenuItem();
             this.заменитьНеделюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.рассписаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
@@ -80,7 +80,7 @@ namespace ZabgcBell
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьПеснюToolStripMenuItem,
+            this.AddSong,
             this.заменитьНеделюToolStripMenuItem});
             this.сервисToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
@@ -88,19 +88,19 @@ namespace ZabgcBell
             this.сервисToolStripMenuItem.Text = "Сервис";
             this.сервисToolStripMenuItem.Click += new System.EventHandler(this.сервисToolStripMenuItem_Click);
             // 
-            // добавитьПеснюToolStripMenuItem
+            // AddSong
             // 
-            this.добавитьПеснюToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
-            this.добавитьПеснюToolStripMenuItem.Name = "добавитьПеснюToolStripMenuItem";
-            this.добавитьПеснюToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.добавитьПеснюToolStripMenuItem.Text = "Добавить песню";
-            this.добавитьПеснюToolStripMenuItem.Click += new System.EventHandler(this.добавитьПеснюToolStripMenuItem_Click);
+            this.AddSong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
+            this.AddSong.Name = "AddSong";
+            this.AddSong.Size = new System.Drawing.Size(172, 22);
+            this.AddSong.Text = "Добавить песню";
+            this.AddSong.Click += new System.EventHandler(this.добавитьПеснюToolStripMenuItem_Click);
             // 
             // заменитьНеделюToolStripMenuItem
             // 
             this.заменитьНеделюToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
             this.заменитьНеделюToolStripMenuItem.Name = "заменитьНеделюToolStripMenuItem";
-            this.заменитьНеделюToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.заменитьНеделюToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.заменитьНеделюToolStripMenuItem.Text = "Заменить неделю";
             this.заменитьНеделюToolStripMenuItem.Click += new System.EventHandler(this.заменитьНеделюToolStripMenuItem_Click);
             // 
@@ -130,14 +130,14 @@ namespace ZabgcBell
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(448, 441);
+            this.panel2.Size = new System.Drawing.Size(448, 445);
             this.panel2.TabIndex = 21;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox1.Image = global::ZabgcBell.Properties.Resources._477_4776171_nor_2_dance_girl_png;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 171);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 175);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(448, 240);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +150,7 @@ namespace ZabgcBell
             this.gradientPanel1.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(88)))), ((int)(((byte)(209)))));
             this.gradientPanel1.Controls.Add(this.label9);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 411);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 415);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(448, 30);
             this.gradientPanel1.TabIndex = 31;
@@ -241,7 +241,7 @@ namespace ZabgcBell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 465);
+            this.ClientSize = new System.Drawing.Size(448, 469);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -284,7 +284,7 @@ namespace ZabgcBell
         private GradientPanel gradientPanel1;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Timer GlobalTimer;
-        private System.Windows.Forms.ToolStripMenuItem добавитьПеснюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddSong;
         private System.Windows.Forms.ToolStripMenuItem заменитьНеделюToolStripMenuItem;
     }
 }
